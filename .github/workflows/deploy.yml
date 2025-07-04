@@ -1,0 +1,38 @@
+name: Build & Deploy Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Generate config
+      run: |
+        cat > src/js/networks.config.js <<EOF
+        export const ETH_API_KEY = '${{ secrets.ETH_API_KEY }}';
+        EOF
+
+    - name: Build site
+      run: |
+        # если у вас есть сборка (webpack/rollup/etc), запустите её здесь
+        # а иначе просто копируем файлы в папку `public`
+        mkdir public
+        cp index.html public/
+        cp -R js public/js
+        cp style.css public/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
