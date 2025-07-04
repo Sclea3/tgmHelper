@@ -1,0 +1,1 @@
+export const ETH_API_KEY = 'c80d661857f6cdf4e13f54faaeea4ef816177624317bb96ec964fc1a27cc53e4';
