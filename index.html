@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Blockchain Tools</h1>
+    <div class="tabs">
+        <div class="tab active" data-tool="tx-status">Tx Status Inspector</div>
+        <div class="tab" data-tool="gas-report">Gas Price Checker</div>
+        <div class="tab" data-tool="pending-nonce">Pending Nonce Check</div>
+        <div class="tab" data-tool="nonce-range">Nonce Range Finder</div>
+    </div>
+
+    <div id="tx-status" class="section active">
+        <label for="tx-hash">Transaction Hash</label>
+        <input id="tx-hash" type="text" placeholder="0x...">
+        <label for="network-select-1">Network</label>
+        <select id="network-select-1"></select>
+        <label for="rpc-url-1">RPC URL</label>
+        <input id="rpc-url-1" type="text" readonly>
+        <button id="run-tx-status">Run Tx Status</button>
+    </div>
+
+    <div id="gas-report" class="section">
+        <label for="network-select-2">Network</label>
+        <select id="network-select-2"></select>
+        <label for="rpc-url-2">RPC URL</label>
+        <input id="rpc-url-2" type="text" readonly>
+        <button id="run-gas-report">Get Gas Price</button>
+    </div>
+
+    <div id="pending-nonce" class="section">
+        <label for="account">Account Address</label>
+        <input id="account" type="text" placeholder="0x...">
+        <label for="network-select-3">Network</label>
+        <select id="network-select-3"></select>
+        <label for="rpc-url-3">RPC URL</label>
+        <input id="rpc-url-3" type="text" readonly>
+        <button id="run-pending-nonce">Run Pending Nonce</button>
+    </div>
+
+    <div id="nonce-range" class="section">
+        <label for="from-nonce">From Nonce</label>
+        <input id="from-nonce" type="number" value="0">
+        <label for="to-nonce">To Nonce</label>
+        <input id="to-nonce" type="number" value="0">
+        <label for="target-address">Target Address</label>
+        <input id="target-address" type="text" placeholder="0x...">
+        <label for="network-select-4">Network</label>
+        <select id="network-select-4"></select>
+        <label for="rpc-url-4">RPC URL</label>
+        <input id="rpc-url-4" type="text" readonly>
+        <button id="run-nonce-range">Find Nonce Blocks</button>
+    </div>
+
+    <pre id="result"></pre>
+</div>
+
+<script type="module" src="js/networks.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
