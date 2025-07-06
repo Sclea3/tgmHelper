@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Blockchain Tools</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
@@ -15,6 +15,7 @@
         <div class="tab" data-tool="gas-report">Gas Price Checker</div>
         <div class="tab" data-tool="pending-nonce">Pending Nonce Check</div>
         <div class="tab" data-tool="nonce-range">Nonce Range Finder</div>
+        <div class="tab" data-tool="nonce-timeline">Nonce Timeline Analyzer</div>
     </div>
 
     <div id="tx-status" class="section active">
@@ -30,7 +31,7 @@
     <div id="gas-report" class="section">
         <label for="network-select-2">Network</label>
         <select id="network-select-2"></select>
-        <label for="rpc-url-2">RPC URL</label>
+        <label for="rpc-url-2">RPC URL Base</label>
         <input id="rpc-url-2" type="text" readonly>
         <button id="run-gas-report">Get Gas Price</button>
     </div>
@@ -54,15 +55,28 @@
         <input id="target-address" type="text" placeholder="0x...">
         <label for="network-select-4">Network</label>
         <select id="network-select-4"></select>
-        <label for="rpc-url-4">RPC URL</label>
+        <label for="rpc-url-4">RPC URL Base</label>
         <input id="rpc-url-4" type="text" readonly>
         <button id="run-nonce-range">Find Nonce Blocks</button>
+    </div>
+
+    <div id="nonce-timeline" class="section">
+        <label for="from-nonce-5">From Nonce</label>
+        <input id="from-nonce-5" type="number" value="0">
+        <label for="to-nonce-5">To Nonce</label>
+        <input id="to-nonce-5" type="number" value="0">
+        <label for="target-address-5">Target Address</label>
+        <input id="target-address-5" type="text" placeholder="0x...">
+        <label for="network-select-5">Network</label>
+        <select id="network-select-5"></select>
+        <label for="rpc-url-5">RPC URL Base</label>
+        <input id="rpc-url-5" type="text" readonly>
+        <button id="run-nonce-timeline">Analyze Timeline</button>
     </div>
 
     <pre id="result"></pre>
 </div>
 
-<script type="module" src="js/networks.js"></script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>
